@@ -10,7 +10,10 @@ import { useEffect, useState } from 'react'
     const jobArray = ['w','e','b','','d','e','v','e','l','o','p','e','r','.']
 
     useEffect(() => {
-        setLetterClass('text-animate-hover')
+        setTimeout(() => {
+            setLetterClass('text-animate-hover')
+        }, 4000)
+        
       }, [])
     return(
         <div className="container home-page">
@@ -20,7 +23,7 @@ import { useEffect, useState } from 'react'
                 <span className={`${letterClass} _12`}>i</span>
                 <br/>
                 <span className={`${letterClass} _13`}>I</span>
-                <span className={`${letterClass }_14`}>'m</span>
+                <span className={`${letterClass } _14`}>'m</span>
                 <img src={LogoTitle} alt="developer"/>
                 <AnimatedLetters letterClass={letterClass} stringArray = {nameArray}
                     idx = {15}/>

@@ -8,13 +8,22 @@ export const Logo = () => {
     
     
     useEffect(() => {
-      const tl = anime.timeline({
+      const tlLogo = anime.timeline({
         targets: '.solid-logo'
       })
-     tl.add({
+      const tlSvg = anime.timeline({
+        targets: '.svg-container'
+      })
+     tlLogo.add({
         opacity: [0, 1],
         easing: 'easeInExpo',
         duration: 6000,
+        delay: (el, i) => 30 * i,
+     })
+     tlSvg.add({
+      opacity: [1, 0],
+        easing: 'easeInExpo',
+        duration: 8000,
         delay: (el, i) => 30 * i,
      })
     }, [])

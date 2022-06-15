@@ -16,6 +16,7 @@
         bottom: 0;
         transform: rotateZ(30deg) !important;
         overflow: visible;
+        user-select: none;
     }
 
     .solid-logo{
@@ -29,6 +30,7 @@
         opacity: 0.1;
         transform: rotateZ(30deg);
         z-index: 1;
+        user-select: none;
     }
 
 }

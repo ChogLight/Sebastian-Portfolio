@@ -1,5 +1,5 @@
 import './index.scss'
-import LogoS from '../../assets/images/logo-s.png'
+import LogoS from '../../../assets/images/logo-s.png'
 import {useEffect} from 'react'
 import anime from 'animejs/lib/anime.es.js'
 import DrawSVG from 'react-svg-drawing'

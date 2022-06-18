@@ -1,6 +1,11 @@
 import './index.scss'
 import { AnimatedLetters } from '../AnimatedLetters'
 import {useState, useEffect} from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHtml5, faCss3Alt, faJsSquare, faNode, faReact, faGitAlt } from '@fortawesome/free-brands-svg-icons'
+import { Loader } from 'react-loaders'
+
+
 export const About = () => {
 
     const [letterClass,setLetterClass] = useState('text-animate')
@@ -11,6 +16,7 @@ export const About = () => {
         }, 3000)
     }, [])
     return(
+        <>
         <div className='container about-page'>
             <div className='text-zone'>
             <h1>
@@ -21,7 +27,7 @@ export const About = () => {
                 />
             </h1>
             <p>
-                I am a full stack developer recently gratuated from Centennial College at Toronto Canada.
+                I'm a full stack developer recently gratuated from Centennial College at Toronto Canada.
                 Currently I am looking for a role in a established IT company to lauch my carreer.
             </p>
             <p>
@@ -32,13 +38,41 @@ export const About = () => {
                 
             </p>
             <p>
-                I'm confident about my skills and a person with an innate curiosity. I'm always looking for new
-                challenges and new knowledge to learn and use in my personal projects.
+                I'm confident about my skills and I'm also a person with an innate curiosity. I'm always looking for new
+                challenges and new knowledge to learn and to use in my personal projects.
                 My hard work and my honesty are both things that define me.
             </p>
+            
+        </div>
+        <div className='stage-cube-cont'>
+            <div className='cube-spinner'>
+                <div className='face1'>
+                    
+                    <FontAwesomeIcon icon = {faCss3Alt} color="#00A6DE"/>
+                </div>
+                <div className='face2'>
+                    <FontAwesomeIcon icon = {faNode} color="#17AD30"/>
+                </div>
+                <div className='face3'>
+                    <FontAwesomeIcon icon = {faJsSquare} color="#D4E114"/>
+                </div>
+                <div className='face4'>
+                    <FontAwesomeIcon icon = {faReact} color="#2D51AD"/>
+                </div>
+                <div className='face5'>
+                    <FontAwesomeIcon icon = {faGitAlt} color="#E19F05"/>
+                </div>
+                <div className='face6'>
+                    <FontAwesomeIcon icon = {faHtml5} color="#DD0031"/>
+                </div>
+            </div>
         </div>
         </div>
+        <Loader type='pacman'/>
+        </>
         
+        
+       
         
     )
 }

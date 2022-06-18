@@ -74,6 +74,7 @@
         animation: fadeIn 1s 1.8s backwards;
         white-space: nowrap;
         user-select: none;
+        border: 1px solid #ffd700;
         &:hover{
             background-color: #ffd700;
             color: #333;

@@ -3,9 +3,10 @@ import { Loader } from 'react-loaders'
 import { AnimatedLetters } from '../AnimatedLetters'
 import {useState, useEffect, useRef} from 'react'
 import emailjs from '@emailjs/browser'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet'
 export const Contact = () => {
 
+    const fillRedOptions = {fillColor : 'red'}
     const [letterClass,setLetterClass] = useState('text-animate')
     const form = useRef();
     useEffect(() => {
@@ -80,11 +81,13 @@ export const Contact = () => {
            <div className="map-wrap">
           <MapContainer center={[43.777702, -79.233238]} zoom={13}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[43.777702, -79.233238]}>
+            <Circle center={[43.777702, -79.233238]}
+                pathOptions = {fillRedOptions}
+                radius = {7000}>
                 <Popup>
                     Currently living around here
                 </Popup>
-            </Marker>
+            </Circle>
           </MapContainer>
         </div>
         </div>

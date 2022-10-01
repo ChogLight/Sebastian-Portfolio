@@ -1,11 +1,14 @@
 import './index.scss'
 import LogoS from '../../../assets/images/logo-s.png'
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import anime from 'animejs/lib/anime.es.js'
 import DrawSVG from 'react-svg-drawing'
+import { useMediaQuery } from 'react-responsive'
+
 export const Logo = () => {
 
-    
+  const [svgSize, setSvgSize] = useState('')
+  const isMobile = useMediaQuery({query: '(max-width: 1200px)'})
     
     useEffect(() => {
       const tlLogo = anime.timeline({
@@ -26,7 +29,10 @@ export const Logo = () => {
         duration: 8000,
         delay: (el, i) => 30 * i,
      })
-    }, [])
+     isMobile ? setSvgSize("50pt"): setSvgSize('300pt')
+
+    }, [isMobile])
+
 
   return (
     <div className="logo-container">
@@ -35,7 +41,7 @@ export const Logo = () => {
         src={LogoS}
         alt="JavaScript,  Developer"
       />
-      <DrawSVG duration = {6000} width = "300pt" easing='easeInSine'>
+      <DrawSVG duration = {6000} width = {svgSize} easing='easeInSine'>
       <svg
         width="559pt"
         height="897pt"

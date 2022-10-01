@@ -5,12 +5,13 @@ import {AnimatedLetters} from '../AnimatedLetters'
 import { useEffect, useState } from 'react'
 import {Logo} from './Logo'
 import { Loader } from 'react-loaders'
+import { useMediaQuery } from 'react-responsive'
  export const Home = () => {
 
     const [letterClass, setLetterClass] = useState('text-animate') 
     const nameArray = ['e','b','a','s','t','i','a','n']
     const jobArray = ['w','e','b','','d','e','v','e','l','o','p','e','r','.']
-
+    const isMobile = useMediaQuery({query: '(min-width: 760px)'})
     useEffect(() => {
         setTimeout(() => {
             setLetterClass('text-animate-hover')
@@ -35,7 +36,11 @@ import { Loader } from 'react-loaders'
                     idx = {23}/>
                 </h1>
                 <h2>FrontEnd Developer / BackEnd Developer / MERN Stack</h2>
-                <Link to="/contact" className='flat-button'>CONTACT ME</Link>
+                {isMobile ?
+                    <Link to="/contact" className='flat-button'>CONTACT ME</Link>
+                    : null    
+                }
+                
             </div>
             <Logo></Logo>
 

@@ -4,11 +4,13 @@ import { AnimatedLetters } from '../AnimatedLetters'
 import {useState, useEffect, useRef} from 'react'
 import emailjs from '@emailjs/browser'
 import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet'
+import { useMediaQuery } from 'react-responsive'
 export const Contact = () => {
 
     const fillRedOptions = {fillColor : 'red'}
     const [letterClass,setLetterClass] = useState('text-animate')
     const form = useRef();
+    const isMobile = useMediaQuery({query:'(min-width:760px)'})
     useEffect(() => {
         setTimeout(() => {
             setLetterClass('text-animate-hover')
@@ -44,8 +46,7 @@ export const Contact = () => {
                 </h1>
                 <p>
                     I'm really interested in new opportunities to learn new technologies that I can apply not only in my projects
-                    but also in different jobs. I really want to have the chance to be involve in challenging projects. If you have any
-                    request or question please don't hesitate to write using the following form.
+                    but also in different jobs.If you have any request or question please don't hesitate to write using the following form.
                 </p>
                 <div className='contact-form'>
                 <form  ref = {form} onSubmit = {sendEmail}>
@@ -69,27 +70,29 @@ export const Contact = () => {
                 </form>
             </div>
             </div>
-           <div className='info-map'>
-            Juan Sebastian Galvis,
-            <br/>
-            Canada,
-            <br/>
-            Toronto, ON
-            <br />
-            <span>sebas8812@gmail.com</span>
-           </div>
-           <div className="map-wrap">
-          <MapContainer center={[43.777702, -79.233238]} zoom={13}>
+            {isMobile ? <div className='info-map'>
+                Juan Sebastian Galvis,
+                <br/>
+                Canada,
+                <br/>
+                Toronto, ON
+                <br />
+                <span>sebas8812@gmail.com</span>
+            </div> : null}
+           
+        <div className="map-wrap">
+          <MapContainer center={[43.777702, -79.233238]} zoom={11}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             <Circle center={[43.777702, -79.233238]}
                 pathOptions = {fillRedOptions}
-                radius = {7000}>
+                radius = {3500}>
                 <Popup>
                     Currently living around here
                 </Popup>
             </Circle>
           </MapContainer>
         </div>
+           
         </div>
         <Loader type='pacman'/>
         </>
